@@ -1,0 +1,7 @@
+*/
+!/Review-2019
+!*.md
+!/Review-2019/*
+*.iml
+*.idea
+!*/*/src
