@@ -5,3 +5,5 @@
 *.iml
 *.idea
 !*/*/src
+!*/*/src/main
+!*/*/src/main/java
