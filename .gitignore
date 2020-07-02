@@ -4,6 +4,7 @@
 !/Review-2019/*
 *.iml
 *.idea
+!/Docker
 !*/*/src
 !*/*/src/main
 !*/*/src/main/java
