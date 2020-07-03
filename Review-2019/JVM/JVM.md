@@ -9,3 +9,11 @@ JVM调优主要是提高程序性能，比如降低系统延迟，增加吞吐�
 //OOM分析
 堆内存溢出：通过产生字节对象OOM
 方法区（元空间）内存溢出，通过代理
+//JPS&&JMAP
+jps -l 完整包名类名
+jps -v JVM参数信息
+jmap -heap pid 打印进程堆信息
+jmap -histo:live pid检测内存泄漏
+jhat .dump 分析dump文件
+jstack -l pid 检测死锁
+jconsole
