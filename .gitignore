@@ -5,6 +5,7 @@
 *.iml
 *.idea
 !/Docker
+!/JVM
 !*/*/src
 !*/*/src/main
 !*/*/src/main/java
