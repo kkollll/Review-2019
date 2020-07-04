@@ -17,3 +17,12 @@ jmap -histo:live pid检测内存泄漏
 jhat .dump 分析dump文件
 jstack -l pid 检测死锁
 jconsole
+//jmapbootstrap
+通过修改catalina.bat文件，控制tomcat的堆内存等分配
+set catalina_opts= -Xms1024m -Xmx1024m -Xmn300m
+//类加载
+将类信息加载到metaspace（方法区jdk1.7)
+包括连接（准备、验证、分析），初始化，使用，卸载等阶段
+个人定义的类加载器主要在初始化阶段 其他阶段由JVM主导
+显示加载：通过反射直接加载类 隐式加载：通过调用静态属性、继承等加载
+被动使用：调用父类静态属性，不会加载子类静态域

@@ -52,13 +52,26 @@ public class TestOOM {
         }
     }
 
+    // -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -Xmx1G -Xms1G -Xmn500M
+    // -XX:+PrintGCDetails -XX:+PrintGCTimeStamps -Xmx20M -Xms20M -Xmn4M
+    // [PSYoungGen: 3568K->496K(3584K)] 年轻代大小
+    // 5417K->2819K(19968K),堆大小
+    // 0.0007794 secs] GC时间
+    @Test
+    public void testMemory01() {
+        byte[] b1 = new byte[1024 * 1024];
+        byte[] b2 = new byte[1024 * 1024];
+        byte[] b3 = new byte[1024 * 1024];
+        byte[] b4 = new byte[1024 * 1024];
+    }
+
     private static class T implements Runnable {
 
         private List<Integer> a;
         private List<Integer> b;
         private Integer target;
 
-        public T(List a, List b,Integer target) {
+        public T(List a, List b, Integer target) {
             this.a = a;
             this.b = b;
             this.target = target;
