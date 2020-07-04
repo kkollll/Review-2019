@@ -1,0 +1,31 @@
+version: "2.2"
+services:
+
+ redis:
+  image: redis:latest
+  ports:
+    - "6379:6379"
+  volumes:
+    - /data:/data
+    - /root/redis.conf:/usr/local/bin/redis.conf
+  command: redis-server /usr/local/bin/redis.conf --appendonly yes
+
+ redis2:
+  image: redis:latest
+  ports:
+    - "6380:6379"
+  volumes:
+    - /data:/data
+    - /root/redis.conf:/usr/local/bin/redis.conf
+  command: redis-server /usr/local/bin/redis.conf --appendonly yes
+
+ redis3:
+  image: redis:latest
+  ports:
+    - "6381:6379"
+  volumes:
+    - /data:/data
+    - /root/redis.conf:/usr/local/bin/redis.conf
+  command: redis-server /usr/local/bin/redis.conf --appendonly yes
+
+
