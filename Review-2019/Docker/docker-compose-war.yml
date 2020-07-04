@@ -1,0 +1,18 @@
+version: "2.2"
+services:
+
+ mysql:
+  image: mysql:5.7.19
+  ports:
+    - "3306:3306"
+  volumes:
+    - $PWD/mysql:/var/lib/mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=123           
+
+ war:
+  image: jtwar:1
+  ports:
+    - "8080:8080"
+  links:
+    - mysql

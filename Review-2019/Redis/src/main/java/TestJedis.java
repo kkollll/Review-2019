@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class TestJedis {
 
-    private static final String HOST = "192.168.116.129";
+    private static final String HOST = "192.168.116.131";
 
     @Test
     public void testJedis() {
@@ -36,12 +36,26 @@ public class TestJedis {
         list.add(new JedisShardInfo(HOST, 6379));
         list.add(new JedisShardInfo(HOST, 6380));
         list.add(new JedisShardInfo(HOST, 6381));
-        ShardedJedisPool pool = new ShardedJedisPool(config,list);
+        ShardedJedisPool pool = new ShardedJedisPool(config, list);
         for (int i = 0; i < 10; i++) {
             pool.getResource().set("u" + i, "" + i);
         }
         for (int i = 0; i < 10; i++) {
-            System.out.println( pool.getResource().get("u" + i));
+            System.out.println(pool.getResource().get("u" + i));
+        }
+        pool.close();
+    }
+
+    @Test
+    public void testCodis() {
+        JedisPoolConfig config = new JedisPoolConfig();
+        config.setMaxTotal(200);
+
+        JedisPool pool = new JedisPool(config, HOST, 19000);
+
+        Jedis jedis = pool.getResource();
+        for (int i = 0; i < 100000; i++) {
+            jedis.set("0618_" + i, "0620_" + i);
         }
         pool.close();
     }
