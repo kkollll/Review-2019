@@ -1,0 +1,18 @@
+server:
+  port: 8070
+
+spring:
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/mybatisdb?serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123
+
+mybatis:
+  type-aliases-package: com.review.pojo
+  mapper-locations: classpath:mappers/*.xml
+
+logging:
+  level:
+    com.review.mapper: debug

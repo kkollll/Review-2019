@@ -6,6 +6,9 @@
 *.idea
 !/Docker
 !/JVM
+!/springboot-ssm
+mvnw*
+*/*/.gitignore
 !*/*/src
 !*/*/src/main
 !*/*/src/main/java
