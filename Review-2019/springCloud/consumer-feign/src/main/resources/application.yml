@@ -1,0 +1,18 @@
+server:
+  port: 8010
+
+haha:
+  port: 8761
+
+spring:
+  application:
+    name: consumer-user
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://user:123@localhost:${haha.port}/eureka
+
+logging:
+  level:
+    root: info
